@@ -19,8 +19,11 @@ function staticSpecLoad() {
 
 	try {
 		spec = load( readFileSync( specPath ) );
-	} catch ( e ) {
-		throw new Error( `Cannot load spec file: ${ specPath }` );
+	} catch ( err ) {
+		throw new Error(
+			`Cannot load spec file: ${ specPath }`,
+			{ cause: err }
+		);
 	}
 
 	return spec;

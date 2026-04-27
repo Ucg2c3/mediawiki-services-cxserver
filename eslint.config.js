@@ -17,7 +17,6 @@ export default [ {
 }, ...compat.extends(
 	'wikimedia/common',
 	'wikimedia/node',
-	'wikimedia/language/es2022',
 	'wikimedia/jsduck',
 	'plugin:import/recommended'
 ), {
@@ -26,7 +25,7 @@ export default [ {
 	languageOptions: {
 		parser: babelParser,
 		parserOptions: {
-			ecmaVersion: 2022,
+			ecmaVersion: 2025,
 			sourceType: 'module',
 			requireConfigFile: false,
 			deprecatedImportAssert: true,
@@ -38,9 +37,7 @@ export default [ {
 				],
 				plugins: [
 					[
-						'@babel/plugin-syntax-import-attributes',
-						// TODO remove when we move to Node 22 and update import assert to import with
-						{ deprecatedAssertSyntax: true }
+						'@babel/plugin-syntax-import-attributes'
 					]
 				]
 			}
